@@ -9,21 +9,25 @@ public class Game {
     Scanner scan = new Scanner(System.in);
 
     // Atributos
-    public char[] letras = {'A', 'B', 'C', 'D', 'E'};
-    public char[] numeros = {'1', '2', '3', '4', '5'};
+    public char[] letras = { 'A', 'B', 'C', 'D', 'E' };
+    public char[] numeros = { '1', '2', '3', '4', '5' };
     String Cod = "";
 
     // Constructor
-    
+
     // Métodos del juego
     public String gen_cod() {
         int radix = 10;
-            for (int i = 0; i < 25; i++) {
-                int n = new Random().nextInt(2);
-                this.Cod += Character.forDigit(n, radix);
-            }
-            
+        for (int i = 0; i < 25; i++) {
+            int n = new Random().nextInt(2);
+            this.Cod += Character.forDigit(n, radix);
+        }
+
         return Cod;
+    }
+
+    public String setCod() {
+        return this.Cod = "";
     }
 
     public boolean validar(String rpta) {
@@ -45,5 +49,5 @@ public class Game {
         }
         return vera;
     }
-    
+
 }
