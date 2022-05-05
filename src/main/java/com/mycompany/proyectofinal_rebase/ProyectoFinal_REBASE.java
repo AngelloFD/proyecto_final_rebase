@@ -80,16 +80,17 @@ public class ProyectoFinal_REBASE {
             // Logica del juego
             String probGened = game.gen_cod();
 
-            System.out.println("    1  2  3  4  5");
+            System.out.println("     1  2  3  4  5");
             for (int x = 0; x < 5; x++) {
                 System.out.print(game.letras[x] + " - ");
                 for (int y = 0; y < 5; y++) {
-                    System.out.print(probGened.charAt((x * 5 + y)) + " ");
+                    System.out.print(" " + probGened.charAt((x * 5 + y)) + " ");
                 }
                 System.out.println();
             }
 
             System.out.println(" > Ingresa tu RPTA, primero LETRA Y NUMERO\n");
+            String rpta = scan.nextLine();
         }
 
     }

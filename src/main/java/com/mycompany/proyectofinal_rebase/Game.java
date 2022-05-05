@@ -17,11 +17,11 @@ public class Game {
     
     // Métodos del juego
     public String gen_cod() {
-        this.Cod = "0000100111000010101000100";
-            /*for (int i = 0; i < 25; i++) {
+        int radix = 10;
+            for (int i = 0; i < 25; i++) {
                 int n = new Random().nextInt(2);
-                this.Cod += (char)n;
-            }*/
+                this.Cod += Character.forDigit(n, radix);
+            }
             
         return Cod;
     }
