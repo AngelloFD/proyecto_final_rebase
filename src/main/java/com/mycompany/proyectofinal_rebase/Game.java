@@ -16,43 +16,13 @@ public class Game {
     // Constructor
     
     // Métodos del juego
-    public String gen_cod(int num) {
-        if (num == 1){
-            String temp = "";
-            for (int i = 0; i < 25; i++) {
+    public String gen_cod() {
+        this.Cod = "0000100111000010101000100";
+            /*for (int i = 0; i < 25; i++) {
                 int n = new Random().nextInt(2);
-                temp += (char)n;
-            }
-            this.Cod = temp;
-        } else if (num == 2) {
-            String temp = "";
-            for (int i = 0; i < 25; i++) {
-                int n = new Random().nextInt(2);
-                temp += (char)n;
-            }
-            this.Cod = temp;
-        } else if (num == 3) {
-           String temp = "";
-            for (int i = 0; i < 25; i++) {
-                int n = new Random().nextInt(2);
-                temp += (char)n;
-            }
-            this.Cod = temp;
-        } else if (num == 4) {
-            String temp = "";
-            for (int i = 0; i < 25; i++) {
-                int n = new Random().nextInt(2);
-                temp += (char)n;
-            }
-            this.Cod = temp;
-        } else if (num == 5) {
-            String temp = "";
-            for (int i = 0; i < 25; i++) {
-                int n = new Random().nextInt(2);
-                temp += (char)n;
-            }
-            this.Cod = temp;
-        }
+                this.Cod += (char)n;
+            }*/
+            
         return Cod;
     }
 

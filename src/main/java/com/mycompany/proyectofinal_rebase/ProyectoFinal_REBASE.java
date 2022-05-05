@@ -9,7 +9,7 @@ public class ProyectoFinal_REBASE {
     // Constructores auxiliares
     Random random = new Random();
     Scanner scan = new Scanner(System.in);
-    
+
     Game game = new Game();
 
     ArrayList<String> probL = new ArrayList<>();
@@ -59,47 +59,47 @@ public class ProyectoFinal_REBASE {
         } catch (InterruptedException e) {
         }
     }
-    
+
     public void run(String[] args) throws Exception {
         // Aquí sólo ejecutaremos el juego y llamaremos a los objetos
-        
-        //Menu
-        System.out.println("-_-_-_-_-_-_-_JUEGO DE ORDEN_-_-_-_-_-_-_-_-_-");
-        System.out.println("  Ingresa cualquier tecla para empezar...");
-        System.out.println("\n");
-        System.out.println("               O ingrese X para ir al tutorial");
-        System.out.println("\n");
-        var ini = scan.nextLine();
-        ini = ini.toUpperCase();
-        if ("X".equals(ini)) {
-            tutorial();
-        }
-        System.out.println("\n\n\n\n");
-        //
-        
-        // Logica del juego
-        int numRand = random.nextInt(5)+1;
-        String cod_linea = game.gen_cod(numRand);
-        System.out.println("    1  2  3  4  5");
-        for (int x = 0; x < 5; x++) {
-            System.out.print(game.letras[x] + " - ");
-            for (int y = 0; y < 5; y++) {
-                System.out.print(game.Cod.indexOf(x*5+y) + " ");
-            }
-            System.out.println();
-        }
-        
-    }
-    
-    public static void main(String[] args) {
-
         while (true) {
-            try {
-                ProyectoFinal_REBASE obj = new ProyectoFinal_REBASE();
-                obj.run(args);
-            } catch (Exception e) {
+            // Menu
+            System.out.println("-_-_-_-_-_-_-_JUEGO DE ORDEN_-_-_-_-_-_-_-_-_-");
+            System.out.println("  Ingresa cualquier tecla para empezar...");
+            System.out.println("\n");
+            System.out.println("               O ingrese X para ir al tutorial");
+            System.out.println("\n");
+            var ini = scan.nextLine();
+            ini = ini.toUpperCase();
+            if ("X".equals(ini)) {
+                tutorial();
             }
+            System.out.println("\n\n\n\n");
+            //
+
+            // Logica del juego
+            String probGened = game.gen_cod();
+
+            System.out.println("    1  2  3  4  5");
+            for (int x = 0; x < 5; x++) {
+                System.out.print(game.letras[x] + " - ");
+                for (int y = 0; y < 5; y++) {
+                    System.out.print(probGened.charAt((x * 5 + y)) + " ");
+                }
+                System.out.println();
+            }
+
+            System.out.println(" > Ingresa tu RPTA, primero LETRA Y NUMERO\n");
+        }
+
+    }
+
+    public static void main(String[] args) {
+        try {
+            ProyectoFinal_REBASE obj = new ProyectoFinal_REBASE();
+            obj.run(args);
+        } catch (Exception e) {
         }
     }
-           
+
 }
