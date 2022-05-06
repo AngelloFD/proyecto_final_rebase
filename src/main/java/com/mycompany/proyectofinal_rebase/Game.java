@@ -1,45 +1,36 @@
 package com.mycompany.proyectofinal_rebase;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class Game {
 
-    // Constructores auxiliares
-    Scanner scan = new Scanner(System.in);
-
     // Atributos
-    public char[] letras = { 'A', 'B', 'C', 'D', 'E' };
-    public char[] numeros = { '1', '2', '3', '4', '5' };
+    public final char[] letras = { 'A', 'B', 'C', 'D', 'E' };
+    public final char[] numeros = { '1', '2', '3', '4', '5' };
     String Cod = "";
 
-    // Constructor
+    // Constructores auxiliares
+    StringBuilder strBuilder = new StringBuilder(Cod);
 
     // Métodos del juego
     public String gen_cod() {
         int radix = 10;
         for (int i = 0; i < 25; i++) {
             int n = new Random().nextInt(2);
-            this.Cod += Character.forDigit(n, radix);
+            strBuilder.append(n);
         }
 
-        return Cod;
-    }
-
-    public String setCod() {
-        return this.Cod = "";
+        return Cod = strBuilder.toString();
     }
 
     public boolean validar(String rpta) {
         rpta = rpta.toUpperCase();
         boolean vera = false;
 
-        for (int i = 0; i < this.letras.length; i++) {
-            if (rpta.charAt(0) == this.letras[i]) {
+        for (char letra : this.letras) {
+            if (rpta.charAt(0) == letra) {
                 vera = true;
                 break;
-            } else {
-                vera = false;
             }
         }
 

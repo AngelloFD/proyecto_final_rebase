@@ -1,24 +1,23 @@
 package com.mycompany.proyectofinal_rebase;
 
-import java.util.Random;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ProyectoFinal_REBASE {
 
     // Constructores auxiliares
-    Random random = new Random();
-    Scanner scan = new Scanner(System.in);
+    final Scanner scan = new Scanner(System.in);
+    final Game game = new Game();
 
-    Game game = new Game();
+    // Atributos
     String probGened = game.gen_cod();
-
-    ArrayList<String> cambio = new ArrayList<>();
+    final ArrayList<String> cambio = new ArrayList<>();
 
     static void pause(int time) {
         try {
-            Thread.sleep(time * 1000);
+            Thread.sleep(time * 1000L);
         } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -39,8 +38,6 @@ public class ProyectoFinal_REBASE {
                 System.out.println("      B 1 1 1");
                 System.out.print("la FILA y COLUMNA, como el");
                 System.out.println("       C 1 1 1");
-                System.out.print("ejemplo de la derecha");
-                System.out.println("             -B2-");
             } else {
                 System.out.println("-_-_-_-_-_-_-_JUEGO DE ORDEN_-_-_-_-_-_-_-_-_-");
                 System.out.println("En el juego de orden tienes");
@@ -52,10 +49,9 @@ public class ProyectoFinal_REBASE {
                 System.out.println("      B 0 0 0");
                 System.out.print("la FILA y COLUMNA, como el");
                 System.out.println("       C 1 0 1");
-                System.out.print("ejemplo de la derecha");
-                System.out.println("             -B2-");
             }
-
+            System.out.print("ejemplo de la derecha");
+            System.out.println("              -B2-");
             pause(2);
         }
         System.out.println("Listo?");
@@ -63,6 +59,9 @@ public class ProyectoFinal_REBASE {
     }
 
     public void menu() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+
         System.out.println("-_-_-_-_-_-_-_JUEGO DE ORDEN_-_-_-_-_-_-_-_-_-");
         System.out.println("  Ingresa cualquier tecla para empezar...");
         System.out.println("\n");
@@ -89,7 +88,7 @@ public class ProyectoFinal_REBASE {
         System.out.println(" > Ingresa tu RPTA, primero LETRA Y NUMERO\n");
     }
 
-    public void run(String[] args) throws Exception {
+    public void run() {
         // Aquí sólo ejecutaremos el juego y llamaremos a los objetos
         while (true) {
             menu();
@@ -107,7 +106,6 @@ public class ProyectoFinal_REBASE {
             if ("RESET".equals(rpta)) {
                 System.out.println("R E I N I C I A N D O...");
                 pause(2);
-                game.setCod();
                 probGened = game.gen_cod();
                 generar_array();
                 continue;
@@ -161,8 +159,8 @@ public class ProyectoFinal_REBASE {
             cambio.add(String.valueOf(k - 5));
 
             // Trabajar lista de cambio
-            for (int i = 0; i < cambio.size(); i++) {
-                int n = Integer.parseInt(cambio.get(i));
+            for (String s : cambio) {
+                int n = Integer.parseInt(s);
                 if (n >= 0 && n <= 24) {
                     if (probGened.charAt(n) == '1') {
                         probGened = probGened.substring(0, n) + "0" + probGened.substring(n + 1);
@@ -204,8 +202,9 @@ public class ProyectoFinal_REBASE {
     public static void main(String[] args) {
         try {
             ProyectoFinal_REBASE obj = new ProyectoFinal_REBASE();
-            obj.run(args);
+            obj.run();
         } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
