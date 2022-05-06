@@ -37,12 +37,18 @@ public class Game {
         for (int i = 0; i < this.letras.length; i++) {
             if (rpta.charAt(0) == this.letras[i]) {
                 vera = true;
+                break;
+            } else {
+                vera = false;
             }
         }
 
         if (vera) {
             for (int j = 0; j < this.letras.length; j++) {
-                if (!(rpta.charAt(0) == this.numeros[j])) {
+                if (rpta.charAt(1) == this.numeros[j]) {
+                    vera = true;
+                    break;
+                } else {
                     vera = false;
                 }
             }
